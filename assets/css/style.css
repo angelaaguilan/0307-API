@@ -1,0 +1,57 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.containerPpal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #212529;
+    color: white;
+    width: 98vw;
+    height: 50vh;
+/* width: 300px;
+    height: 190px;
+    padding-top: 0px;
+    padding-right: 150px;
+    padding-bottom: 150px;
+    padding-left: 0px;
+*/
+}
+
+.lineTittle {
+    border: 1px solid #1d4650;
+    width: 90%;
+}
+
+.containerPesos {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #6c757d;
+    color: #edf5f6;
+    width: 200px;
+    padding: 1px 0px 3px 20px;
+}
+
+.btnBuscar {
+    background-color: #0dcaf0;
+    color: white;
+    width: 130px;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    padding: 10px;
+}
+
+canvas {
+    width: 98vw;
+    background-color: lightcyan;
+}
+
+
