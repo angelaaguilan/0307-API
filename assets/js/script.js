@@ -40,7 +40,7 @@ async function getTipoMonedas(tipomoneda) {
 function prepararConfiguracionParaLaGrafica(monedas10, tipomoneda) {
   // Variables necesarias para el objeto de configuración
   const tipoDeGrafica = "line";
-  const titulo = "Moneda: ";
+  const titulo = "Ultimos 10 días";
   const colorDeLinea = "blue";
   const nombresDeLasMonedas = monedas10.map((moneda) => moneda.fecha.substring(0, 10)); // Datos en Eje X
   const valores = monedas10.map((moneda) => moneda.valor); // Datos en Eje Y
@@ -51,7 +51,7 @@ function prepararConfiguracionParaLaGrafica(monedas10, tipomoneda) {
       labels: nombresDeLasMonedas, // Eje X
       datasets: [
         {
-          label: `${titulo} ${tipomoneda.toUpperCase()}`,
+          label: `${tipomoneda.toUpperCase()} - ${titulo}`,
           backgroundColor: colorDeLinea, // color gráfico
           data: valores, // Eje Y
         },

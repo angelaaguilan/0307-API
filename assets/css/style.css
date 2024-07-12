@@ -11,20 +11,13 @@
     flex-direction: column;
     background-color: #212529;
     color: white;
-    width: 98vw;
-    height: 50vh;
-/* width: 300px;
-    height: 190px;
-    padding-top: 0px;
-    padding-right: 150px;
-    padding-bottom: 150px;
-    padding-left: 0px;
-*/
+    width: 99vw;
+    height: 27vh;
 }
 
 .lineTittle {
     border: 1px solid #1d4650;
-    width: 90%;
+    width: 100%;
 }
 
 .containerPesos {
@@ -34,7 +27,9 @@
     background-color: #6c757d;
     color: #edf5f6;
     width: 200px;
-    padding: 1px 0px 3px 20px;
+    margin-top: 10px;
+    padding: 5px 0px 3px 20px;
+
 }
 
 .btnBuscar {
@@ -49,9 +44,10 @@
     padding: 10px;
 }
 
-canvas {
-    width: 98vw;
+.canvas {
+    display: flex;
+    justify-content: center;
+    width: 99vw;
+    height: 70vh;
     background-color: lightcyan;
 }
-
-
