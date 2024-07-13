@@ -18,10 +18,18 @@ async function renderMonedas() {
     const tipomoneda = document.getElementById("tipoMoneda").value; // Dolar, euro o UF
     const resultado = document.getElementById("resultado"); // Resultado del total convertido
     const monedas = await getMonedas();
-    valoraConvertir = monedas[tipomoneda].valor;
-    resultadoFinal = pesos / valoraConvertir;
-    resultado.innerHTML = `<p>Total: ${resultadoFinal.toFixed(2)}</p>`;
-    renderGrafica(tipomoneda); // LLAMADA A GRAFICAR
+    const regex = /^[0-9]*$/; // valores para validar solo sean numeros
+    const onlyNumbers = regex.test(pesos); // busca que solo sean números
+    if (onlyNumbers) {
+      valoraConvertir = monedas[tipomoneda].valor;
+      resultadoFinal = pesos / valoraConvertir;
+      resultado.innerHTML = `<p>Total: ${resultadoFinal.toFixed(2)}</p>`;
+      renderGrafica(tipomoneda); // LLAMADA A GRAFICAR
+    } else {
+      alert(`Ingresar solo números en "Pesos Chilenos (CLP)"`);
+      document.getElementById("pesos").value = 0;
+      return;
+    }
   } catch (error) {
     const errorSpan = document.getElementById("error");
     errorSpan.innerHTML = `<p><strong>*** Error en los datos para conversión: ${error.message} ***</strong></p>`;
@@ -78,3 +86,4 @@ async function renderGrafica(tipomoneda) {
         errorSpan.innerHTML = `<p><strong>*** Error al generar gráfico: ${error.message} ***</strong></p>`;
     }
 }
+

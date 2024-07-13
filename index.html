@@ -20,12 +20,14 @@
         <div class="containerPesos">
             <div>
                 <p>Pesos Chilenos (CLP)</p>
-                <input type="number" id="pesos">
+                <input type="text" id="pesos" value="0" min="1" pattern="/^[0-9]*$/" placeholder="Pesos a convertir" required>
+                <!-- onblur onclick -->
             </div>
 
             <div>
                 <p>Moneda a convertir:</p>
                 <select id="tipoMoneda">
+                    <option value="dolar">Seleccione moneda</option>
                     <option value="dolar">Dolar</option>
                     <option value="euro">Euro</option>
                     <option value="uf">UF</option>
@@ -33,7 +35,7 @@
             </div>
 
             <div>
-                <button type="button" class="btnBuscar" onclick="renderMonedas()">Buscar</button>
+                <button type="button" class="btnBuscar" onclick="renderMonedas()">Convertir</button>
                 <div id="resultado">Total: </div>
             </div>
         </div>
