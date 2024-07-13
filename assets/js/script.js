@@ -1,5 +1,4 @@
 const apiURL = "https://mindicador.cl/api/";
-
 let myChart;
 
 // 1. CALCULO PARA LA CONVERSIÓN
@@ -20,14 +19,14 @@ async function renderMonedas() {
     const monedas = await getMonedas();
     const regex = /^[0-9]*$/; // valores para validar solo sean numeros
     const onlyNumbers = regex.test(pesos); // busca que solo sean números
-    if (onlyNumbers) {
+    if (onlyNumbers && pesos>0 ) {
       valoraConvertir = monedas[tipomoneda].valor;
       resultadoFinal = pesos / valoraConvertir;
       resultado.innerHTML = `<p>Total: ${resultadoFinal.toFixed(2)}</p>`;
       renderGrafica(tipomoneda); // LLAMADA A GRAFICAR
     } else {
-      alert(`Ingresar solo números en "Pesos Chilenos (CLP)"`);
-      document.getElementById("pesos").value = 0;
+      alert(`Ingrese números > 0 en "Pesos Chilenos (CLP)"`);
+      document.getElementById("pesos").value = 1;
       return;
     }
   } catch (error) {
@@ -75,7 +74,7 @@ async function renderGrafica(tipomoneda) {
         const monedas = await getTipoMonedas(tipomoneda);
         const config = prepararConfiguracionParaLaGrafica(monedas, tipomoneda);
         let chartDOM = document.getElementById("myChart");
-        if (myChart) {
+        if (myChart) { // valida si la gráfica fue generada
             myChart.destroy();
             myChart = new Chart(chartDOM, config);
         }else {
