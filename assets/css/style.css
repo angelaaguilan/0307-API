@@ -20,22 +20,37 @@
     width: 100%;
 }
 
+.titulo {
+    padding: 10px;
+}
+
+.inputCLP {
+    width: 130px;
+}
+
+.selectMoneda, .pesostittle {
+    margin-bottom: 5px;
+    text-align: left;
+}
+
 .containerPesos {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     background-color: #6c757d;
     color: #edf5f6;
-    width: 200px;
+    width: 180px;
     margin-top: 10px;
     padding: 5px 0px 3px 20px;
-
 }
 
 .btnBuscar {
     background-color: #0dcaf0;
     color: white;
     width: 130px;
+    height: 25px;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
 .error {
@@ -49,5 +64,7 @@
     justify-content: center;
     width: 99vw;
     height: 70vh;
-    background-color: lightcyan;
+    border-radius: 30px;
+    border: solid 1px;
+    background-color: #f1f3f5;
 }

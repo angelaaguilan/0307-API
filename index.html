@@ -10,36 +10,36 @@
 </head>
 
 <body>
-    <main class="containerPpal">
+    <div class="containerPpal">
         <div>
             <hr class="lineTittle">
-            <h3 >Conversor de monedas Nacional</h3>
+            <h3 class="titulo">Conversor de monedas Nacional</h3>
             <hr class="lineTittle">
         </div>
 
         <div class="containerPesos">
             <div>
-                <p>Pesos Chilenos (CLP)</p>
-                <input type="text" id="pesos" value="1" min="1" placeholder="Pesos a convertir" required>
+                <p class="pesostittle">Pesos Chilenos (CLP)</p>
+                <input type="text" id="pesos" min="0" placeholder="Ingrese el monto CLP" class="inputCLP">
             </div>
 
-            <div>
-                <p>Moneda a convertir:</p>
+            <div class="selectMoneda">
+                <p class="pesostittle">Moneda a convertir:</p>
                 <select id="tipoMoneda">
-                    <option value="dolar">Seleccione moneda</option>
+                    <option value="0">Seleccione moneda</option>
                     <option value="dolar">Dolar</option>
                     <option value="euro">Euro</option>
                     <option value="uf">UF</option>
                 </select> 
             </div>
 
-            <div>
+            <div class="pesostittle">
                 <button type="button" class="btnBuscar" onclick="renderMonedas()">Convertir</button>
                 <div id="resultado">Total: </div>
             </div>
         </div>
         <div id="error" class="error"></div>
-    </main>
+    </div>
 
     <!-- ESPACIO PARA LA GRÁFICA -->
     <div id="errorGraf" class="error"></div>

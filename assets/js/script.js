@@ -16,21 +16,24 @@ async function renderMonedas() {
     const pesos = document.getElementById("pesos").value; // Pesos CL a convertir
     const tipomoneda = document.getElementById("tipoMoneda").value; // Dolar, euro o UF
     const resultado = document.getElementById("resultado"); // Resultado del total convertido
-    const monedas = await getMonedas();
     const regex = /^[0-9]*$/; // valores para validar solo sean numeros
     const onlyNumbers = regex.test(pesos); // busca que solo sean números
-    if (onlyNumbers && pesos>0 ) {
+    const errorSpan = document.getElementById("error");
+    //errorSpan.innerHTML = '';
+    console.log(tipomoneda);
+    console.log(typeof(tipomoneda));
+    if ((onlyNumbers && pesos>0) && (tipomoneda !== '0'))  {
+      const monedas = await getMonedas();
       valoraConvertir = monedas[tipomoneda].valor;
       resultadoFinal = pesos / valoraConvertir;
       resultado.innerHTML = `<p>Total: ${resultadoFinal.toFixed(2)}</p>`;
       renderGrafica(tipomoneda); // LLAMADA A GRAFICAR
     } else {
-      alert(`Ingrese números > 0 en "Pesos Chilenos (CLP)"`);
-      document.getElementById("pesos").value = 1;
+      alert(`Ingrese números > 0 en "Pesos Chilenos (CLP)" y Moneda`);
       return;
     }
   } catch (error) {
-    const errorSpan = document.getElementById("error");
+    console.log(`${error.message}`);
     errorSpan.innerHTML = `<p><strong>*** Error en los datos para conversión: ${error.message} ***</strong></p>`;
   }
 }
@@ -47,7 +50,7 @@ async function getTipoMonedas(tipomoneda) {
 function prepararConfiguracionParaLaGrafica(monedas10, tipomoneda) {
   // Variables necesarias para el objeto de configuración
   const tipoDeGrafica = "line";
-  const titulo = "Ultimos 10 días";
+  const titulo = "Últimos 10 días";
   const colorDeLinea = "blue";
   const nombresDeLasMonedas = monedas10.map((moneda) => moneda.fecha.substring(0, 10)); // Datos en Eje X
   const valores = monedas10.map((moneda) => moneda.valor); // Datos en Eje Y
